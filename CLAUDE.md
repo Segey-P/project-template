@@ -32,6 +32,8 @@
 4. No comments explaining *what* code does — only *why*, when non-obvious.
 5. No premature abstractions. Three similar lines beats a helper function.
 6. No half-finished implementations. Either do it or don't.
+7. Keep `TODO.md` updated with relevant next actions throughout the session.
+8. Update specs in `specs/` at the end of every session and after any major change in requirements or behaviour.
 
 ## TODO.md Convention
 
