@@ -39,3 +39,18 @@
 The Project Hub dashboard reads it automatically. Keep it updated.
 
 Format:
+
+[] Next action
+[] Another action
+
+Up to 6 items are shown in the dashboard.
+
+## Key Files
+
+| File | Purpose |
+|---|---|
+| `TODO.md` | Current next steps (read by Project Hub dashboard) |
+| `CLAUDE.md` | AI agent instructions (this file) |
+| `AGENTS.md` | Agent-neutral mirror of CLAUDE.md |
+| `specs/` | Authoritative spec documents |
+
