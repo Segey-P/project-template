@@ -1,3 +1,3 @@
 # Next Steps
 
-- [ ] No pending tasks — template is complete
+- [ ] review lessons learned from other projects and update this template
