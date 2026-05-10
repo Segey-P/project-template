@@ -1,0 +1,40 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "nvidia/nemotron-3-super-120b-a12b",
+  "agent": {
+    "coordinator": {
+      "mode": "primary",
+      "description": "Auto-routes requests to the right specialist",
+      "model": "nvidia/nemotron-3-super-120b-a12b"
+    },
+    "architect": {
+      "description": "High-level planning and architecture",
+      "model": "nvidia/nemotron-3-super-120b-a12b"
+    },
+    "builder": {
+      "description": "Code implementation",
+      "model": "nvidia/nemotron-3-super-120b-a12b"
+    },
+    "fast": {
+      "description": "Quick fixes and small changes",
+      "model": "deepseek/deepseek-r1"
+    },
+    "quick": {
+      "description": "Trivial lookups only",
+      "model": "minimax/minimax-m2.5"
+    },
+    "requirements-architect": {
+      "description": "Translates vague requests into structured spec.md",
+      "model": "nvidia/nemotron-3-super-120b-a12b"
+    },
+    "security-auditor": {
+      "description": "Scans code for vulnerabilities (readonly)",
+      "model": "minimax/minimax-m2.5",
+      "readonly": true
+    },
+    "documentation-syncer": {
+      "description": "Updates README.md and technical docs",
+      "model": "minimax/minimax-m2.5"
+    }
+  }
+}

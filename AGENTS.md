@@ -1,6 +1,6 @@
 # Agent Context — [Project Name]
 
-Mirrors `CLAUDE.md` for non-Claude agents. Full workspace agent definitions are in the workspace `AGENTS.md`.
+Mirrors `CLAUDE.md` for non-Claude agents.
 
 ## What This Project Is
 
@@ -15,44 +15,37 @@ Mirrors `CLAUDE.md` for non-Claude agents. Full workspace agent definitions are 
 5. Prefer editing existing files over creating new ones.
 6. Keep dependencies minimal.
 7. Update specs in `specs/` at the end of every session and after any major change in requirements or behaviour.
-8. Sync opencode.json with `opencode-agents/` at project start — check for agent updates: `cp ../opencode-agents/opencode.json ./opencode.json`
+8. Sync `opencode.json` with `opencode-agents/` at project start: `cp ../opencode-agents/opencode.json ./opencode.json`
 
 ---
 
-## Workspace Agents (15 Active)
+## Specialized Agents (8 Active)
 
-| # | Agent | Purpose | Default Model |
+| # | Agent | Purpose | Model |
 |---|---|---|---|
-| 1 | Code Refiner | Code quality, refactoring, cleanup (merged) | Qwen3 Coder (Free) |
-| 2 | Security & Compliance Officer | Vulnerabilities, PIPEDA, OWASP, banking (merged) | Liquid LFM 2.5 Thinking |
-| 3 | Tech Lead / Solution Architect | Architecture trade-offs, scalability | Gemini 3 Flash |
-| 4 | UX Reviewer | UI/UX, accessibility, mobile | Qwen3 Coder (Free) |
-| 5 | Agent Coach | Meta-optimization of agent instructions | Gemini 3 Flash |
-| 6 | Product Manager | Feature utility, MVP scope, prioritization | Gemini 3 Flash |
-| 7 | Models Manager | Dynamic model routing and cost audits | Qwen3 Coder (Free) |
-| 8 | Database Architect | Schema, migrations, ACID, indexing | DeepSeek-V4 Flash |
-| 9 | Documentation Writer | README, inline docs, API docs | Qwen3 Coder (Free) |
-| 10 | Testing Specialist | Unit/integration tests, edge cases | Qwen3 Coder (Free) |
-| 11 | DevOps & Release Engineer | CI/CD, GitHub Actions, Streamlit Cloud, Vercel | Qwen3 Coder (Free) |
-| 12 | Performance Optimizer | Streamlit/React/DB/API bottlenecks | Qwen3 Coder (Free) |
-| 13 | API Design Reviewer | Endpoints, contracts, REST patterns | Qwen3 Coder (Free) |
-| 14 | GitHub Ops | PRs, issues, branches, repo scaffolding | Qwen3 Coder (Free) |
-| 15 | Streamlit Pro | Dashboard architecture, caching, Streamlit-specific | Qwen3 Coder (Free) |
+| 1 | Code Refiner | Code quality, refactoring, cleanup | MiniMax M2.5 (nvidia) |
+| 2 | Security & Compliance Officer | Vulnerabilities, PIPEDA, OWASP, banking | MiniMax M2.5 (nvidia) |
+| 3 | Tech Lead / Solution Architect | Architecture trade-offs, scalability | Nemotron 3 Super (nvidia) |
+| 4 | UX Reviewer | UI/UX, accessibility, mobile | Nemotron 3 Super (nvidia) |
+| 5 | Product Manager | Feature utility, MVP scope, prioritization | Nemotron 3 Super (nvidia) |
+| 6 | Database Architect | Schema, migrations, ACID, indexing | Nemotron 3 Super (nvidia) |
+| 7 | DevOps & Release Engineer | CI/CD, GitHub Actions, Streamlit Cloud | Nemotron 3 Super (nvidia) |
+| 8 | Performance Optimizer | Streamlit/DB/API bottlenecks | MiniMax M2.5 (nvidia) |
 
-## Model Switching
+## Model Pool (All FREE via NVIDIA / build.nvidia.com)
 
-| Model | Best For | Limitations |
-|---|---|---|
-| **Qwen3 Coder (Free)** | Fast lookups, small edits, structured output | Limited reasoning depth |
-| **Gemini 3 Flash** | Large context, history analysis, multi-file reads | Higher latency |
-| **NVIDIA Nemotron 3 Super** | Cross-document reasoning, long-form writing | Slower than free models |
-| **Liquid LFM 2.5 Thinking** | Regulatory analysis, security audits, complex logic | Token-heavy |
-| **DeepSeek-V4 Flash** | SQL/NoSQL schemas, precise data tasks | Narrow focus |
+| Model | Provider | Context | Best For |
+|---|---|---|---|
+| **Nemotron 3 Super 120B** | nvidia | 262K | General purpose, routing, planning, coding |
+| **MiniMax M2.5** | minimax | 197K | Fast lookups, security, docs |
+| **DeepSeek R1** | deepseek | 164K | Quick fixes, reasoning |
+
+**Fallback:** `openrouter/free` — auto-selects from all available free models.
 
 **Rules:**
-1. Start with cheapest capable model unless context is large (>50k tokens) or task is reasoning-heavy.
-2. If output quality degrades, escalate to next tier.
-3. Log model switches in commit messages: `[model: Gemini 3 Flash]`
+1. All models via build.nvidia.com — no cost, no credit card needed.
+2. Connect via `/connect` in opencode — NVIDIA, MiniMax, DeepSeek, OpenRouter.
+3. Log model switches in commit messages: `[model: Nemotron 3 Super]`
 
 ---
 
@@ -67,10 +60,8 @@ For every multi-file or multi-step task:
 
 | Phase | Parallel? | Model |
 |---|---|---|
-| Read + analyze | Sequential (once) | Qwen3 Coder (Free) |
-| Write / edit files | Parallel (no dependencies) | Qwen3 or Gemini 3 Flash |
-| Git operations | Parallel (repos are independent) | Qwen3 Coder (Free) |
-
-**Rule:** Never batch unrelated work sequentially just because it's the same tool. Parallelize whenever safe.
+| Read + analyze | Sequential (once) | Nemotron 3 Super (nvidia) |
+| Write / edit files | Parallel (no dependencies) | Nemotron 3 Super or MiniMax M2.5 (nvidia) |
+| Git operations | Parallel (repos are independent) | Nemotron 3 Super (nvidia) |
 
 Full definitions: `/Users/sergeypochikovskiy/AI_workspace/AGENTS.md`
