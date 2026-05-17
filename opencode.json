@@ -19,10 +19,6 @@
       "description": "Quick fixes and small changes",
       "model": "deepseek/deepseek-r1"
     },
-    "quick": {
-      "description": "Trivial lookups only",
-      "model": "minimax/minimax-m2.5"
-    },
     "requirements-architect": {
       "description": "Translates vague requests into structured spec.md",
       "model": "nvidia/nemotron-3-super-120b-a12b"
@@ -31,10 +27,6 @@
       "description": "Scans code for vulnerabilities (readonly)",
       "model": "minimax/minimax-m2.5",
       "readonly": true
-    },
-    "documentation-syncer": {
-      "description": "Updates README.md and technical docs",
-      "model": "minimax/minimax-m2.5"
     }
   }
 }
