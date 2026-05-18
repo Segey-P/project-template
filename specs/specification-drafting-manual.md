@@ -43,42 +43,7 @@ Each sub-module document must define:
 
 ---
 
-## 5. File Naming Rules
-
-All spec files must follow this convention:
-
-```
-[type]-[kebab-topic].md
-```
-
-- Lowercase only
-- Hyphens between words — no spaces, no underscores
-- No version numbers or dates in filenames — git tracks history
-- Filename must be self-describing without opening the file
-
-### Type Prefixes
-
-| Prefix | Use | Examples |
-|---|---|---|
-| `spec-` | Requirements, scope, functional definitions | `spec-aacs-overview.md`, `spec-project-hub-master.md` |
-| `context-` | Instructions for AI agents — read these first | `context-file_naming_rules.md`, `context-project-instructions.md` |
-| `plan-` | Phase plans, task breakdowns, sequenced work | `plan-phase1-setup.md`, `plan-q2-2026.md` |
-| `ref-` | Reference data: tax tables, rates, regulatory notes | `ref-canadian-tax-2026.md`, `ref-heloc-rates.md` |
-| `notes-` | Freeform notes — not authoritative | `notes-session-apr2026.md` |
-
-### Rules
-
-1. **Always use a type prefix.** A file named `overview.md` or `ideas.md` is not acceptable.
-2. **Check before creating.** If a file already exists for the topic, update it — do not create a duplicate.
-3. **One topic per file.** Split files over ~150 lines into sub-topic files with consistent prefixes.
-4. **`context-` files are authoritative.** Follow them exactly — do not infer alternatives.
-5. **`spec-` files define what gets built.** Never rewrite a spec to match what was built. Update the Status section only.
-6. **Keep `specs/` flat.** No subdirectories. Clear naming replaces folder structure.
-7. **Remove stale files.** AI agents treat every file in `specs/` as current and authoritative. Delete files that no longer apply.
-
----
-
-## 6. Technical Formatting Standards
+## 5. Technical Formatting Standards
 
 - **Markdown only.** Use standard Markdown (`#`, `##`, `|`, `*`) — no HTML, no proprietary formats.
 - **Tables** for comparisons, architecture, and status overviews.
@@ -87,7 +52,7 @@ All spec files must follow this convention:
 
 ---
 
-## 7. Communication Guardrails
+## 5. Communication Guardrails
 
 - **Critique first.** The assistant must analyze gaps before drafting — no jumping to files.
 - **Concise and precise.** Facts and requirements only — no conversational filler.
