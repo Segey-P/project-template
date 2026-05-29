@@ -1,0 +1,42 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.command' | { read -r cmd; if echo \"$cmd\" | grep -q '^git push'; then [[ -f scripts/check_schema_docs.py ]] && python3 scripts/check_schema_docs.py || true; fi; } 2>/dev/null || true",
+            "statusMessage": "Checking schema docs before push..."
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git status *)",
+      "Bash(git log *)",
+      "Bash(git diff *)",
+      "Bash(git show *)",
+      "Bash(git branch *)",
+      "Bash(git checkout *)",
+      "Bash(git pull *)",
+      "Bash(git push *)",
+      "Bash(git commit *)",
+      "Bash(git add *)",
+      "Bash(git stash *)",
+      "Bash(git fetch *)",
+      "Bash(git rebase *)",
+      "Bash(gh pr *)",
+      "Bash(gh api *)",
+      "Bash(gh issue *)",
+      "Bash(grep *)",
+      "Bash(find *)",
+      "Bash(ls *)",
+      "Bash(which *)",
+      "Bash(cat *)",
+      "Bash(curl *)"
+    ]
+  }
+}

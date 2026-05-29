@@ -1,48 +1,35 @@
 # Spec Compliance Log
 
-**Purpose:** Track file creation activity and spec compliance across this project.
-**Maintained by:** AI agents (automatically updated on each file change)
+Track every file created, modified, or deprecated in this project. One row per PR.
+**Maintained by:** AI agents — updated as part of every PR (see PR_CHECKLIST.md).
 
 ---
 
-## How to Use
+## How to update
 
-- **After creating any file**, log the entry below
-- **After modifying any existing file**, log the entry
-- **After a human review**, update any `Needs Review` entries with the outcome
-
----
-
-## Compliance Records
-
-| Date | File | Action | Pre-Creation | Post-Creation | Auto-Fixes | Human Review? | Notes |
-|------|------|--------|-------------|--------------|------------|--------------|-------|
-| _(date)_ | `specs/example.md` | Create | Pass | Pass | None | No | First spec file |
-
-## Deprecation Records
-
-| Date | File | Deprecated By | Replaced By | Notes |
-|------|------|--------------|-------------|-------|
-| _(date)_ | `specs/superseded-file.md` | _(agent/human)_ | `specs/replacement.md` | Reason for deprecation |
+After any file change, add a row below:
+- **Action:** `create` | `modify` | `deprecate`
+- **Checks:** did you run pre-creation checks from SPEC_CHECKLIST.md? Pass / Skip (not a spec file)
+- **Notes:** one line — what changed and why
 
 ---
 
-## Summary Stats
+## Log
 
-- Total files created: **0**
-- Auto-fixes applied: **0**
-- Human reviews requested: **0**
-- Compliance rate: **100%**
-
----
-
-## Common Violation Trends
-
-| Period | Violation Type | Count | Trend |
-|--------|---------------|-------|-------|
-| _(last 30 days)_ | _(none yet)_ | 0 | — |
+| Date | File | Action | Checks | Notes |
+|------|------|--------|--------|-------|
+| _(YYYY-MM-DD)_ | `specs/example.md` | create | Pass | _(first spec file — replace this row)_ |
 
 ---
 
-**Template Version:** 1.0  
-**Last Updated:** _(date of last entry)_
+## Deprecation log
+
+Files moved to `_Archive/` or deleted:
+
+| Date | File | Replaced by | Reason |
+|------|------|-------------|--------|
+| — | — | — | — |
+
+---
+
+**Last updated:** _(update this date when you add a row)_
